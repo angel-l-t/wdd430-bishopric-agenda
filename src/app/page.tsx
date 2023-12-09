@@ -14,7 +14,7 @@ export default function Home() {
     <>
       <Pool name={"Not Completed"} items={items} />
       <Pool name={"Completed"} items={items} />
-      <Pool name={"In progress"} items={items} />
+      <Pool name={"In progress"} items={items} />      
     </>
   )
 }
