@@ -11,7 +11,7 @@ export default function Pool({name, items} : PoolType) {
 
     const toggle = () => {
         setOPen(!open);
-      };
+    };
 
     return(
         <section className="p-4 text-center">
