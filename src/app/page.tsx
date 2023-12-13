@@ -1,6 +1,7 @@
-import ItemsFilter from "./components/ItemsFilter"
+import Pool from "./components/Pool";
 
-import { pullTasks } from "./utils/pull-tasks"
+import { pullTasks } from "./utils/pull-tasks";
+import { deleteTask } from "./utils/delete-task";
 
 export default async function Home() {
   const tasks = await pullTasks();
@@ -8,7 +9,7 @@ export default async function Home() {
   
   return (
     <>
-      <ItemsFilter tasks={tasks} />  
+      <Pool items={tasks} deleteTask={deleteTask}/>
     </>
   )
 }
