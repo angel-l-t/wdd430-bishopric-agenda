@@ -1,15 +1,10 @@
-import Pool from "./components/Pool";
-
-import { pullTasks } from "./utils/pull-tasks";
-import { deleteTask } from "./utils/delete-task";
+import Footer from "./components/Footer";
 
 export default async function Home() {
-  const tasks = await pullTasks();
-  //console.log(tasks);
   
   return (
     <>
-      <Pool items={tasks} deleteTask={deleteTask}/>
+      <Footer />
     </>
   )
 }

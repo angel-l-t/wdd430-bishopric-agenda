@@ -93,5 +93,5 @@ export async function createTask(data: any) {
         data: newTask,
     });
 
-    redirect("/");
+    redirect("/tasks-page");
 }
