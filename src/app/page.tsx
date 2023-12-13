@@ -1,20 +1,14 @@
-import Pool from "./components/Pool"
+import ItemsFilter from "./components/ItemsFilter"
 
-let items = (
-  <>
-  <li>Item de Prueba 1</li>
-  <li>Item de Prueba 2</li>
-  <li>Item de Prueba 3</li>
-  <li>Item de Prueba 4</li>
-  </>
-);
+import { pullTasks } from "./utils/pull-tasks"
 
-export default function Home() {
+export default async function Home() {
+  const tasks = await pullTasks();
+  //console.log(tasks);
+  
   return (
     <>
-      <Pool name={"Not Completed"} items={items} />
-      <Pool name={"Completed"} items={items} />
-      <Pool name={"In progress"} items={items} />      
+      <ItemsFilter tasks={tasks} />  
     </>
   )
 }
