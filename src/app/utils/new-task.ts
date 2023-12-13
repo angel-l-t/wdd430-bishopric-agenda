@@ -10,7 +10,8 @@ export async function createTask(data: any) {
         assigned: "",
         title: "",
         description: "",
-        dateTime: ""
+        dateTime: "",
+        dateCreated: ""
     };
 
     // Setting Variables
@@ -25,6 +26,7 @@ export async function createTask(data: any) {
     
     let dateTime;
     let dateTime2;
+    let currentDate;
     
     // Getting form data
     type = data.get("type");
@@ -38,7 +40,6 @@ export async function createTask(data: any) {
     
     dateTime = data.get("dateTime");
     dateTime2 = data.get("dateTime2");
-
 
     // Data Validation
     // type
@@ -77,11 +78,16 @@ export async function createTask(data: any) {
     if (dateTime === "No") {
         newTask["dateTime"] = dateTime;
     } else {
-        newTask["dateTime"] = dateTime2;
+        let newDate = new Date(dateTime2).toString();
+        newTask["dateTime"] = newDate;
     }
 
+    let newDate2 = new Date().toString();
+    newTask["dateCreated"] = newDate2;
+
     // Checking newTask object
-    console.log(newTask);
+    //console.log(newTask);
+
 
     const task = await prisma.tasks.create({
         data: newTask,

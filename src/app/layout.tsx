@@ -22,7 +22,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <Header />
         <main className='max-w-2xl mx-auto my-16'>{children}</main>
-        <Footer />
+        
       </body>
     </html>
   )
