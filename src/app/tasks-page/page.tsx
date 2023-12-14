@@ -3,7 +3,7 @@ import Pool from "../components/Pool";
 import { pullTasks } from "../utils/pull-tasks";
 import { deleteTask } from "../utils/delete-task";
 import { getServerSession } from "next-auth";
-import { authOptions } from "../api/auth/[...nextauth]/route";
+import { authOptions } from "../api/auth/[...nextauth]/options";
 
 import { redirect } from "next/navigation"
 
