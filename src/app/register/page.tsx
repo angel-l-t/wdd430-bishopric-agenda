@@ -5,6 +5,7 @@ import { useState } from "react";
 
 import { redirect } from "next/navigation";
 import { useSession } from "next-auth/react";
+import Footer from "../components/Footer";
 
 export default function RegisterPage() {
     const [error, setError] = useState(false);
@@ -58,6 +59,7 @@ export default function RegisterPage() {
                 <button className="text-white text-xl border bg-myBlue4 rounded py-2 px-4 mt-10 ml-auto w-40" type="submit" >Register</button>
                 <Link href="/login" className="text-myBlue5 font-bold mt-8 underline decoration-solid">Already have an account? Login...</Link>
             </form>
+            <Footer />
         </>
     );
 }
