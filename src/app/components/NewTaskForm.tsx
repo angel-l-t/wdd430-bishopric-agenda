@@ -16,7 +16,7 @@ export default function NewTaskForm({ createTask } : any) {
     }
     
     return(
-        <form className="flex flex-col p-6 border" action={createTask}>
+        <form className="flex flex-col p-6 border max-w-2xl mx-auto" action={createTask}>
             <legend className="text-2xl font-bold">New Task</legend>
 
             <label className="mt-8 font-bold" htmlFor="type">Type</label>
@@ -66,7 +66,7 @@ export default function NewTaskForm({ createTask } : any) {
             }
             
 
-            <button className="text text-xl border bg-white rounded py-2 px-4 mt-10 mr-auto w-40" type="submit">Create Task</button>
+            <button className="text-white text-xl border bg-myBlue4 rounded py-2 px-4 mt-10 mr-auto w-40" type="submit">Create Task</button>
         </form>
     );
 }

@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import { redirect } from "next/navigation"
 import Link from "next/link";
 
 export default function Pool({items, deleteTask} : any) {
@@ -7,20 +8,21 @@ export default function Pool({items, deleteTask} : any) {
     const [open2, setOPen2] = useState(true); 
 
     const [tasks, setTasks] = useState(items);
+    const [permanentTasks, setPermanentTasks] = useState(items);
 
-        function filterByRole(role:string) {
+    function filterByRole(role:string) {
         if (role === "All") {
-            setTasks(items);
+            setTasks(permanentTasks);
         } else if (role === "Bishop") {
-            setTasks(items.filter((task:any) => task.assigned === "Bishop"));
+            setTasks(permanentTasks.filter((task:any) => task.assigned === "Bishop"));
         } else if (role === "1st Counselor") {
-            setTasks(items.filter((task:any) => task.assigned === "1st Counselor"));
+            setTasks(permanentTasks.filter((task:any) => task.assigned === "1st Counselor"));
         } else if (role === "2nd Counselor") {
-            setTasks(items.filter((task:any) => task.assigned === "2nd Counselor"));
+            setTasks(permanentTasks.filter((task:any) => task.assigned === "2nd Counselor"));
         } else if (role === "Secretary") {
-            setTasks(items.filter((task:any) => task.assigned === "Secretary"));
+            setTasks(permanentTasks.filter((task:any) => task.assigned === "Secretary"));
         } else {
-            setTasks(items);
+            setTasks(permanentTasks);
         }
     }
 
@@ -51,6 +53,9 @@ export default function Pool({items, deleteTask} : any) {
     // Delete task function
     function delTask(id: string) {
         deleteTask(id);
+        setPermanentTasks(
+            permanentTasks.filter((t : any) => t.id !== id)
+        );
         setTasks(
             tasks.filter((t : any) => t.id !== id)
         );

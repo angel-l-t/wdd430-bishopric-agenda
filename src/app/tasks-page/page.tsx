@@ -1,14 +1,14 @@
-import NewTaskForm from "@/app/components/NewTaskForm"
-import Footer from "../components/Footer";
+import Pool from "../components/Pool";
 
-import { createTask } from "@/app/utils/new-task";
-
+import { pullTasks } from "../utils/pull-tasks";
+import { deleteTask } from "../utils/delete-task";
 import { getServerSession } from "next-auth";
 import { authOptions } from "../api/auth/[...nextauth]/route";
 
 import { redirect } from "next/navigation"
 
-export default async function NewTask() {
+
+export default async function TasksPage() {
     //@ts-ignore
     const session = await getServerSession(authOptions);
     //console.log(session);
@@ -16,11 +16,12 @@ export default async function NewTask() {
     if (!session?.user) {
         redirect("/login");
     }
-        
-    return(
+
+    const tasks = await pullTasks();
+
+    return (
         <>
-            <NewTaskForm createTask={createTask}/>
-            <Footer />
+            <Pool items={tasks} deleteTask={deleteTask}/>
         </>
     );
 }
