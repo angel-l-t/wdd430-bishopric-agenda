@@ -23,7 +23,7 @@ export default function LoginPage() {
     }
 
     async function loginUser(e:any) {
-        //e.preventDefault();
+        
         signIn("credentials", {
             ...data,
             redirect: false,
@@ -40,7 +40,7 @@ export default function LoginPage() {
                 <input className="border mt-2 pl-1" required type="password" id="password" name="password" autoComplete="current-password" value={data.password} onChange={(e) => {setData({...data, password: e.target.value})}} />
                 
                 <button className="text-white text-xl border bg-myBlue4 rounded py-2 px-4 mt-10 ml-auto w-40" type="submit" >Login</button>
-                <Link href="/register" className="text-myBlue5 font-bold mt-8 underline decoration-solid">Don't have an account? Register...</Link>
+                <Link href="/register" className="text-myBlue5 font-bold mt-8 underline decoration-solid">Dont have an account? Register...</Link>
             </form>
             <Footer />
         </>
